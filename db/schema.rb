@@ -10,23 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915174824) do
+ActiveRecord::Schema.define(version: 20160918195418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "districts", force: :cascade do |t|
+    t.integer  "district_number"
     t.string   "state"
     t.integer  "zip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  create_table "zipcodes", force: :cascade do |t|
+  create_table "legislators", force: :cascade do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "twitter_id"
+    t.string   "role_type"
     t.string   "state"
-    t.integer  "district"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "district_id"
+    t.index ["district_id"], name: "index_legislators_on_district_id", using: :btree
   end
 
+  add_foreign_key "legislators", "districts"
 end
