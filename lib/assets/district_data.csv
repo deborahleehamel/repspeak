@@ -1,4 +1,4 @@
-state,zip,district,latitude,longitude
+state,zip,district_number,latitude,longitude
 CO,80203,0,39.7318,104.9825
 CO,84531,1,37.1288,109.9955
 CO,85602,2,32.1865,110.2653
