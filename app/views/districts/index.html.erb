@@ -1,0 +1,22 @@
+<h1>Districts</h1>
+
+<table>
+  <tr>
+    <th>State</th>
+    <th>District Number</th>
+    <th>Zipcode</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+
+   <% @districts.each do |district| %>
+  <tr>
+    <td><%= district.state %></td>
+    <td><%= district.district_number %></td>
+    <td><%= district.zip %></td>
+    <td><%= district.latitude %></td>
+    <td><%= district.longitude %></td>
+  </tr>
+  <% end %>
+
+</table>
