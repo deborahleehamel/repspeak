@@ -47,7 +47,7 @@ group :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock'
-  gem 'simplecov', require: false
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do

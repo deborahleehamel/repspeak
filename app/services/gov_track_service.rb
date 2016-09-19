@@ -1,13 +1,21 @@
 class GovTrackService
 
-  def self.get_reps
-    response = parse(Faraday.get("https://www.govtrack.us/api/v2/role?current=true&format=csv&fields=state,district,title_long,person__firstname,person__lastname,person__name,person__twitterid&state=CO&limit=600"))
-    Legislators.find_or_create_by(response["objects"])
+  def initialize
+    @_connection = Faraday.new(:url => 'https://www.govtrack.us/api/v2')
+  end
+
+  def get_reps
+    # require "pry"; binding.pry
+    response = parse(Faraday.get("https://www.govtrack.us/api/v2/role?current=true&format=json&fields=state,district,title_long,person__firstname,person__lastname,person__name,person__twitterid&state=CO&limit=600"))
   end
 
   private
 
-  def parse(response)
-    JSON.parse(response.body, symbolize_name: true)
-  end
+    def connection
+      @_connection
+    end
+
+    def parse(response)
+      JSON.parse(response.body, symbolize_name: true)
+    end
 end
