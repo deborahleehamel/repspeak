@@ -1,26 +1,26 @@
 require "rails_helper"
 
-RSpec.describe GovTrackService do
-  context "#get_reps" do
-    it "returns legislators" do
-      VCR.use_cassette("gov_track_service#get_reps") do
-        service = GovTrackService.new
+describe GovTrackService do
+  before do
+    @service = GovTrackService.new
+  end
 
-        response = JSON.parse(service.get_reps)
+  it "returns legislators" do
+    VCR.use_cassette("gov_track_service#get_reps") do
 
-        expect(response[:state][0]).to eq("CO")
-        expect(response[:district][0]).to eq("")
-        expect(response[:title_long][0]).to eq("Senator")
-        expect(response[:person__name][0]).to eq("Michael Bennet")
-        expect(response[:twitter_id][0]).to eq("SenBennetCo")
+      results = @service.get_reps
 
-        expect(response[:state][1]).to eq("CO")
-        expect(response[:district][1]).to eq("1")
-        expect(response[:title_long][1]).to eq("Representative")
-        expect(response[:person__name][1]).to eq("Michael Bennet")
-        expect(response[:twitter_id][1]).to eq("SenBennetCo")
+      expect(results["objects"][0]["state"]).to eq("CO")
+      # expect(results["objects"][0]["district"]).to eq()
+      expect(results["objects"][0]["title_long"]).to eq("Senator")
+      expect(results["objects"][0]["person"]["name"]).to eq("Sen. Michael Bennet [D-CO]")
+      expect(results["objects"][0]["person"]["twitterid"]).to eq("SenBennetCo")
 
-      end
+      expect(results["objects"][1]["state"]).to eq("CO")
+      expect(results["objects"][1]["district"]).to eq(1)
+      expect(results["objects"][1]["title_long"]).to eq("Representative")
+      expect(results["objects"][1]["person"]["name"]).to eq("Rep. Diana DeGette [D-CO1]")
+      expect(results["objects"][1]["person"]["twitterid"]).to eq("RepDianaDeGette")
     end
   end
 end
