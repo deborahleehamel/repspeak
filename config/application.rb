@@ -11,7 +11,7 @@ require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
 # require './alchemyapi'
-require "#{RAILS.root}/lib/alchemyapi.rb"
+# require "#{Rails.root}/lib/alchemyapi.rb"
 # alchemyapi = AlchemyAPI.new()
 
 

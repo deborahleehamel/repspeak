@@ -1,1 +1,13 @@
-<h1>Repspeak</h1>
+<div class="jumbotron text-center">
+  <h1 class="display-3">Colorado Repspeak</h1>
+
+  <p class="lead">What do ours reps say?</p>
+  <hr class="m-y-2">
+  <p class="lead">
+    <%# if current_user %>
+        <%#= link_to "Back to my Dashboard!", root_path, class:"btn btn-primary btn-lg" %>
+      <%# else %>
+        <%#= link_to "Sign in with Twitter", twitter_login_path, class:"btn btn-primary btn-lg" %>
+    <%# end %>
+  </p>
+</div>

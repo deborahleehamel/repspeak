@@ -1,13 +1,13 @@
 <div class="container">
   <nav class="navbar" role="navigation">
     <div class="navbar-header">
-      <!-- link_to image_tag("repspeak_logo.jpg"), root_path -->
+      <!-- link_to image_tag("tweetish_sentiments_logo.jpg"), root_path -->
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if !current_user %>
       <% else %>
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Back to Dashboard", dashboard_path, class:"btn btn-primary" %></li>
+        <li><%= link_to "Back to Home", root_path, class:"btn btn-primary" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- <li><a href="#" class="btn btn-primary btn-nav">Analyze Tweets</a></li> -->
