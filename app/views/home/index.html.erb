@@ -1,7 +1,7 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center transparent">
   <h1 class="display-3">Colorado Repspeak</h1>
 
-  <p class="lead">What do our reps say?</p>
+  <p class="lead">Click on a pin to explore rep tweets!</p>
   <hr class="m-y-2">
   <p class="lead">
     <%# if current_user %>
@@ -10,9 +10,206 @@
         <%#= link_to "Sign in with Twitter", twitter_login_path, class:"btn btn-primary btn-lg" %>
     <%# end %>
   </p>
-  <div style='width: 800px;'>
+  <div style='width: 100%;'>
+
+  <div id="map" style='width: 800px; height: 400px;'>
+    <script>
+
+  // This example displays a marker at the center of Colorado.
+  // When the user clicks the marker, an info window opens.
+
+  function initMap() {
+    var marker1 = {lat: 39.7318, lng: -104.9825};
+    var marker2 = {lat: 37.1288, lng: -109.9955};
+    var marker3 = {lat: 32.1865, lng: -110.2653};
+    var marker4 = {lat: 33.4931, lng: -112.2131};
+    var marker5 = {lat: 33.8763, lng: -112.0502};
+    var marker6 = {lat: 33.4198, lng: -111.5733};
+    var marker7 = {lat: 33.527, lng: -112.0225};
+    var marker8 = {lat: 33.4902, lng: -112.2639};
+    var marker9 = {lat: 33.4647, lng: -111.9872};
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5,
+      center: marker1
+    });
+
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Legislators</h1>'+
+        '<div id="bodyContent">'+
+        '<p>See Tweets for <a href="https://twitter.com/RepDianaDeGette">'+
+        '@RepDianaDeGette</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/SenCoryGardner">'+
+        '@SenCoryGardner</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/SenBennetCO">'+
+        '@SenBennetCO</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepDLamborn">'+
+        '@RepDLamborn</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepPerlmutter">'+
+        '@RepPerlmutter</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepMikeCoffman">'+
+        '@RepMikeCoffman</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/jaredpolis">'+
+        '@jaredpolis</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepTipton">'+
+        '@RepTipton</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepTipton">'+
+        '@RepTipton</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepKenBuck">'+
+        '@RepKenBuck</a> </p>'+
+        '<table>'+
+          '<tr>'+
+            '<th>State</th>'+
+            '<th>District Number</th>'+
+            '<th>Zipcode</th>'+
+            '<th>Latitude</th>'+
+            '<th>Longitude</th>'+
+          '</tr>'+
+
+           '<% @districts.each do |district| %>'+
+          '<tr>'+
+            '<td><%= district.state %></td>'+
+            '<td><%= district.district_number %></td>'+
+            '<td><%= district.zip %></td>'+
+            '<td><%= district.latitude %></td>'+
+            '<td><%= district.longitude %></td>'+
+          '</tr>'+
+        '  <% end %>'+
+
+        '</table>'+
+        '</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      maxWidth: 200
+    });
+
+    var marker = new google.maps.Marker({
+      position: marker1,
+      map: map,
+      title: 'marker1'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker2,
+      map: map,
+      title: 'marker2'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker3,
+      map: map,
+      title: 'marker3'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker4,
+      map: map,
+      title: 'marker4'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker5,
+      map: map,
+      title: 'marker5'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker6,
+      map: map,
+      title: 'marker6'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker7,
+      map: map,
+      title: 'marker7'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker8,
+      map: map,
+      title: 'marker8'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    var marker = new google.maps.Marker({
+      position: marker9,
+      map: map,
+      title: 'marker9'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+    <!-- <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.7318, lng: -104.9825},
+          zoom: 7
+        });
+      }
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap"
+    async defer></script>
+  </div>
+</div>
+
+  <!-- <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
+
+  <script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {
+      disableDefaultUI: true
+      // pass in other Google Maps API options here
+    },
+    internal: {
+      id: 'map'
+    }
+  },
+  function(){
+    markers = handler.addMarkers([
+      {
+        "lat": 39.7318,
+        "lng": -104.9825,
+        "picture": {
+          "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  }
+);
+  </script> -->
 </div>
 <!-- <script
     src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>">
