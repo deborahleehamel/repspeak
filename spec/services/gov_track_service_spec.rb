@@ -1,17 +1,18 @@
 require "rails_helper"
 
 describe GovTrackService do
-  before do
-    @service = GovTrackService.new
-  end
-
-  it "returns legislators" do
+  scenario "returns legislator inforamtion" do
     VCR.use_cassette("gov_track_service#get_reps") do
+      info = ["district", "person", "state", "title_long"]
 
-      results = @service.get_reps
+      service = GovTrackService.new
+
+      results = service.get_reps
+
+      expect(results["objects"].first.keys).to eq info
 
       expect(results["objects"][0]["state"]).to eq("CO")
-      # expect(results["objects"][0]["district"]).to eq()
+      expect(results["objects"][0]["district"].nil?).to eq true
       expect(results["objects"][0]["title_long"]).to eq("Senator")
       expect(results["objects"][0]["person"]["name"]).to eq("Sen. Michael Bennet [D-CO]")
       expect(results["objects"][0]["person"]["twitterid"]).to eq("SenBennetCo")

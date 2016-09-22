@@ -1,13 +1,164 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center transparent">
   <h1 class="display-3">Colorado Repspeak</h1>
 
-  <p class="lead">What do our reps say?</p>
-  <hr class="m-y-2">
-  <p class="lead">
-    <%# if current_user %>
-        <%#= link_to "Back to my Dashboard!", root_path, class:"btn btn-primary btn-lg" %>
-      <%# else %>
-        <%#= link_to "Sign in with Twitter", twitter_login_path, class:"btn btn-primary btn-lg" %>
-    <%# end %>
-  </p>
+  <p class="lead">Click on a pin to explore rep tweets!</p>
+
+  <div id="map" style='width: 900px; height: 500px;'>
+    <script>
+
+  function initMap() {
+    var marker0 = {lat: 39.7318, lng: -104.9825};
+    var marker1 = {lat: 39.5977, lng: -105.0712};
+    var marker2 = {lat: 40.0155, lng: -105.0998};
+    var marker3 = {lat: 40.7439, lng: -106.8694};
+    var marker4 = {lat: 39.4276, lng: -103.9439};
+    var marker5 = {lat: 39.0574, lng: -104.9038};
+    var marker6 = {lat: 39.7403, lng: -104.8598};
+    var marker7 = {lat: 39.7953, lng: -105.1025};
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: marker1
+    });
+
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Legislators</h1>'+
+        '<div id="bodyContent">'+
+        '<p>See Tweets for <a href="https://twitter.com/RepDianaDeGette">'+
+        '@RepDianaDeGette</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/SenCoryGardner">'+
+        '@SenCoryGardner</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/SenBennetCO">'+
+        '@SenBennetCO</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepDLamborn">'+
+        '@RepDLamborn</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepPerlmutter">'+
+        '@RepPerlmutter</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepMikeCoffman">'+
+        '@RepMikeCoffman</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/jaredpolis">'+
+        '@jaredpolis</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepTipton">'+
+        '@RepTipton</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepTipton">'+
+        '@RepTipton</a> <br>'+
+        '<p>See Tweets for <a href="https://twitter.com/RepKenBuck">'+
+        '@RepKenBuck</a> </p>'+
+        '<table>'+
+          '<tr>'+
+            '<th>State</th>'+
+            '<th>District Number</th>'+
+            '<th>Zipcode</th>'+
+            '<th>Latitude</th>'+
+            '<th>Longitude</th>'+
+          '</tr>'+
+
+           '<% @districts.each do |district| %>'+
+          '<tr>'+
+            '<td><%= district.state %></td>'+
+            '<td><%= district.district_number %></td>'+
+            '<td><%= district.zip %></td>'+
+            '<td><%= district.latitude %></td>'+
+            '<td><%= district.longitude %></td>'+
+          '</tr>'+
+        '  <% end %>'+
+
+        '</table>'+
+        '</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      maxWidth: 500
+    });
+
+    var marker0 = new google.maps.Marker({
+      position: marker0,
+      map: map,
+      title: 'marker0'
+    });
+    marker0.addListener('click', function() {
+      infowindow.open(map, marker0);
+    });
+    var marker1 = new google.maps.Marker({
+      position: marker1,
+      map: map,
+      title: 'marker1'
+    });
+    marker1.addListener('click', function() {
+      infowindow.open(map, marker1);
+    });
+    var marker2 = new google.maps.Marker({
+      position: marker2,
+      map: map,
+      title: 'marker2'
+    });
+    marker2.addListener('click', function() {
+      infowindow.open(map, marker2);
+    });
+    var marker3 = new google.maps.Marker({
+      position: marker3,
+      map: map,
+      title: 'marker3'
+    });
+    marker3.addListener('click', function() {
+      infowindow.open(map, marker3);
+    });
+    var marker4 = new google.maps.Marker({
+      position: marker4,
+      map: map,
+      title: 'marker4'
+    });
+    marker4.addListener('click', function() {
+      infowindow.open(map, marker4);
+    });
+    var marker5 = new google.maps.Marker({
+      position: marker5,
+      map: map,
+      title: 'marker5'
+    });
+    marker5.addListener('click', function() {
+      infowindow.open(map, marker5);
+    });
+    var marker6 = new google.maps.Marker({
+      position: marker6,
+      map: map,
+      title: 'marker6'
+    });
+    marker6.addListener('click', function() {
+      infowindow.open(map, marker6);
+    });
+    var marker7 = new google.maps.Marker({
+      position: marker7,
+      map: map,
+      title: 'marker7'
+    });
+    marker7.addListener('click', function() {
+      infowindow.open(map, marker7);
+    });
+    var marker8 = new google.maps.Marker({
+      position: marker8,
+      map: map,
+      title: 'marker8'
+    });
+    marker8.addListener('click', function() {
+      infowindow.open(map, marker8);
+    });
+  }
+</script>
+    <!-- <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.7318, lng: -104.9825},
+          zoom: 7
+        });
+      }
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap"
+    async defer></script>
 </div>
