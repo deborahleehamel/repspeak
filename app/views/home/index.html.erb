@@ -47,26 +47,6 @@
         '@RepTipton</a> <br>'+
         '<p>See Tweets for <a href="https://twitter.com/RepKenBuck">'+
         '@RepKenBuck</a> </p>'+
-        '<table>'+
-          '<tr>'+
-            '<th>State</th>'+
-            '<th>District Number</th>'+
-            '<th>Zipcode</th>'+
-            '<th>Latitude</th>'+
-            '<th>Longitude</th>'+
-          '</tr>'+
-
-           '<% @districts.each do |district| %>'+
-          '<tr>'+
-            '<td><%= district.state %></td>'+
-            '<td><%= district.district_number %></td>'+
-            '<td><%= district.zip %></td>'+
-            '<td><%= district.latitude %></td>'+
-            '<td><%= district.longitude %></td>'+
-          '</tr>'+
-        '  <% end %>'+
-
-        '</table>'+
         '</p>'+
         '</div>'+
         '</div>';
@@ -150,15 +130,7 @@
     });
   }
 </script>
-    <!-- <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 39.7318, lng: -104.9825},
-          zoom: 7
-        });
-      }
-    </script> -->
+  
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap"
     async defer></script>
 </div>

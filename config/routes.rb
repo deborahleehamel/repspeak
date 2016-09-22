@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'districts/index'
   get 'legislators/show'
 
   root "home#index"
