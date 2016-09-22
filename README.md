@@ -8,8 +8,11 @@ This project uses the GovTrack.us API and the Google Maps API to implement a 3rd
 ## Dependencies
 
 The gems used for this project can be found in the Gemfile. Data is loaded to database from a csv file and from the GovTrackService api via rake tasks.
+```
 rake import_district_data:district_data      (Import districts from csv)
 rake import_legislator_data:legislator_data  (Import legislators from service)
+
+```
 
 ## Testing
 
