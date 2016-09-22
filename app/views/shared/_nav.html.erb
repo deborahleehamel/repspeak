@@ -2,7 +2,6 @@
   <div class="navbar-header">
     <ul class="nav navbar-nav navbar-right">
     <% if current_user %>
-        <li><%= link_to "Back to Home", root_path, class:"btn btn-primary" %></li>
         <li><%= link_to "Log Out", logout_path, class:"btn btn-primary" %></li>
     <% else %>
         <li><%= link_to "Sign in with Twitter", twitter_login_path, class:"btn btn-primary btn-lg" %></li>
