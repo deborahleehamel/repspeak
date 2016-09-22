@@ -1,16 +1,16 @@
 <div class="jumbotron text-center transparent">
   <h1 class="display-3">Colorado Repspeak</h1>
 
-  <p class="lead">Click on a pin to explore rep tweets!</p>
+  <p class="lead">Explore Senator and Representative tweets for every district!</p>
 
-  <div id="map" style='width: 900px; height: 500px;'>
+  <div id="map" style='width: 1000px; height: 500px;'>
     <script>
 
   function initMap() {
     var marker0 = {lat: 39.7318, lng: -104.9825};
     var marker1 = {lat: 39.5977, lng: -105.0712};
     var marker2 = {lat: 40.0155, lng: -105.0998};
-    var marker3 = {lat: 40.7439, lng: -106.8694};
+    var marker3 = {lat: 39.706604, lng:  -106.294604};
     var marker4 = {lat: 39.4276, lng: -103.9439};
     var marker5 = {lat: 39.0574, lng: -104.9038};
     var marker6 = {lat: 39.7403, lng: -104.8598};
@@ -22,7 +22,36 @@
       center: marker1
     });
 
-    var contentString = '<div id="content">'+
+    var contentString0 = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Checkout their Tweets!</h1>'+
+        '<div id="bodyContent">'+
+        '<p><a href="https://twitter.com/RepDianaDeGette">'+
+        '@RepDianaDeGette</a> <br>'+
+        '<p><a href="https://twitter.com/SenCoryGardner">'+
+        '@SenCoryGardner</a> <br>'+
+        '<p><a href="https://twitter.com/SenBennetCO">'+
+        '@SenBennetCO</a> <br>'+
+        '<p><a href="https://twitter.com/RepDLamborn">'+
+        '@RepDLamborn</a> <br>'+
+        '<p><a href="https://twitter.com/RepPerlmutter">'+
+        '@RepPerlmutter</a> <br>'+
+        '<p><a href="https://twitter.com/RepMikeCoffman">'+
+        '@RepMikeCoffman</a> <br>'+
+        '<p><a href="https://twitter.com/jaredpolis">'+
+        '@jaredpolis</a> <br>'+
+        '<p><a href="https://twitter.com/RepTipton">'+
+        '@RepTipton</a> <br>'+
+        '<p><a href="https://twitter.com/RepTipton">'+
+        '@RepTipton</a> <br>'+
+        '<p><a href="https://twitter.com/RepKenBuck">'+
+        '@RepKenBuck</a> </p>'+
+        '</p>'+
+        '</div>'+
+        '</div>';
+
+      var contentString1 = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Legislators</h1>'+
@@ -51,8 +80,9 @@
         '</div>'+
         '</div>';
 
+
     var infowindow = new google.maps.InfoWindow({
-      content: contentString,
+      content: contentString0,
       maxWidth: 500
     });
 
@@ -130,7 +160,7 @@
     });
   }
 </script>
-  
+
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap"
     async defer></script>
 </div>
