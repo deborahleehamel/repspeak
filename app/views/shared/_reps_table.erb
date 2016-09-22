@@ -1,0 +1,28 @@
+<div class="all_reps">
+
+  <h1>Colorado Representatives</h1>
+
+  <table>
+    <tr>
+      <th>Job Title</th>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>District</th>
+      <th>State</th>
+      <th>Twitter</th>
+    </tr>
+
+     <% @legislators.each do |legislator| %>
+    <tr class="rep">
+      <td><%= legislator.name %></td>
+      <td><%= legislator.last_name %></td>
+      <td><%= legislator.first_name %></td>
+      <td><%= legislator.district.district_number %></td>
+      <td><%= legislator.state %></td>
+      <td><%= legislator.twitter_id %></td>
+    </tr>
+
+    <% end %>
+
+  </table>
+</div>
