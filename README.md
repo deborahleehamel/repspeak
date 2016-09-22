@@ -1,7 +1,7 @@
 # Repspeak - State representative twitter content accessible via mapped district pins.
 ## Overview
 
-This project uses the GovTrack.us API and the Google Maps API to implement a 3rd party app that uses OAuth 2.0 to log users in via Twitter and to access representative data mapped to district pins on a state map. It utilizes the Google Maps API to create interactive pins on a map for each district in a state.
+This project uses the [govtrack.us API](https://www.govtrack.us/developers/api) and the [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/tutorial) to implement a 3rd party app that uses OAuth 2.0 to log users in via Twitter and to access representative data mapped to district pins on a state map. It utilizes the Google Maps API to create interactive pins on a map for each district in a state.
 
 ![Image of Home Page](/app/assets/images/Repspeak_landing.png)
 
